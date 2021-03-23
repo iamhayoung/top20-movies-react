@@ -14,7 +14,7 @@ class App extends React.Component {
     this.loadMovies();
   }
 
-  loadMovies = () => {
+  loadMovies = async () => {
     axios
       .get("https://yts.mx/api/v2/list_movies.json")
       .then(result => {
@@ -38,12 +38,15 @@ class App extends React.Component {
     return (
       <>
         <GlobalStyle />
-        <Movies
-          id={movieList.id}
-          title={movieList.title}
-          year={movieList.year}
-          summary={movieList.summary}
-        />
+        {movieList.map(movie => {
+          return (
+            <Movies
+              id={movie.id}
+              title={movie.title}
+              year={movie.year}
+              summary={movie.summary}
+            />)
+        })}
       </>
     )
   }
