@@ -1,6 +1,6 @@
 import React from 'react';
 import GlobalStyle from './components/GlobalStyle';
-import Movie from './components/Movie'
+import Movies from './components/Movies'
 import axios from 'axios';
 
 class App extends React.Component {
@@ -38,7 +38,12 @@ class App extends React.Component {
     return (
       <>
         <GlobalStyle />
-        <Movie />
+        <Movies
+          id={movieList.id}
+          title={movieList.title}
+          year={movieList.year}
+          summary={movieList.summary}
+        />
       </>
     )
   }
