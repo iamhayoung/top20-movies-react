@@ -5,6 +5,7 @@ import axios from 'axios';
 
 class App extends React.Component {
   state = {
+    loading: false,
     movieList: []
   }
 
@@ -17,16 +18,23 @@ class App extends React.Component {
     axios
       .get("https://yts.mx/api/v2/list_movies.json")
       .then(result => {
-        const movies = result.data.data.movies;
-        this.setState({ movies });
+        this.setState({
+          loading: true,
+          movieList: result.data.data.movies
+        });
       })
       .catch(error => {
         console.error(error);
+        this.setState({
+          loading: false
+        })
       })
   };
 
   render() {
     console.log('render')
+    const { movieList } = this.state;
+    console.log(movieList)
     return (
       <>
         <GlobalStyle />
