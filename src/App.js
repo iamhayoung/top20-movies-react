@@ -1,7 +1,20 @@
 import React from 'react';
 import GlobalStyle from './components/GlobalStyle';
+import styled from 'styled-components';
 import Movies from './components/Movies'
 import axios from 'axios';
+
+const Container = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+`
+
+const Loading = styled.div`
+  font-weight: bold;
+`
 
 class App extends React.Component {
   state = {
@@ -36,21 +49,26 @@ class App extends React.Component {
     const { movieList, loading } = this.state;
     return (
       <>
-        <GlobalStyle />
+      <GlobalStyle />
+      <Container>
         {loading ? (
-          <div>Loading...</div>
+          <Loading>Loading...</Loading>
         ) : (
           movieList.map(movie => {
             return (
               <Movies
+                key={movie.id}
                 id={movie.id}
                 title={movie.title}
+                image={movie.medium_cover_image}
                 year={movie.year}
+                genres={movie.genres}
                 summary={movie.summary}
               />
             )
           })
         )}
+      </Container>
       </>
     )
   }
