@@ -16,8 +16,9 @@ class App extends React.Component {
   loadMovies = () => {
     axios
       .get("https://yts.mx/api/v2/list_movies.json")
-      .then((result) => {
-        console.log(result.data.data.movies);
+      .then(result => {
+        const movies = result.data.data.movies;
+        this.setState({ movies });
       })
       .catch(error => {
         console.error(error);
@@ -26,11 +27,10 @@ class App extends React.Component {
 
   render() {
     console.log('render')
-    const {movieList} = this.state
     return (
       <>
         <GlobalStyle />
-        <Movie hoge={movieList} />
+        <Movie />
       </>
     )
   }
