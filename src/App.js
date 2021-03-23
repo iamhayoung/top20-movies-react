@@ -1,7 +1,7 @@
 import React from 'react';
 import GlobalStyle from './components/GlobalStyle';
 import styled from 'styled-components';
-import Movies from './components/Movies'
+import Movie from './components/Movie'
 import axios from 'axios';
 
 const Container = styled.section`
@@ -10,10 +10,18 @@ const Container = styled.section`
   justify-content: center;
   flex-wrap: wrap;
   min-height: 100vh;
+  padding: 50px;
+  background: #fef9ef;
 `
 
 const Loading = styled.div`
   font-weight: bold;
+`
+
+const MovieList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 500px);
+  grid-gap: 100px;
 `
 
 class App extends React.Component {
@@ -53,20 +61,22 @@ class App extends React.Component {
       <Container>
         {loading ? (
           <Loading>Loading...</Loading>
-        ) : (
-          movieList.map(movie => {
-            return (
-              <Movies
-                key={movie.id}
-                id={movie.id}
-                title={movie.title}
-                image={movie.medium_cover_image}
-                year={movie.year}
-                genres={movie.genres}
-                summary={movie.summary}
-              />
-            )
-          })
+          ) : (
+          <MovieList>
+            {movieList.map(movie => {
+              return (
+                <Movie
+                  key={movie.id}
+                  id={movie.id}
+                  title={movie.title}
+                  image={movie.medium_cover_image}
+                  year={movie.year}
+                  genres={movie.genres}
+                  summary={movie.summary}
+                />
+              )
+            })}
+          </MovieList>
         )}
       </Container>
       </>
