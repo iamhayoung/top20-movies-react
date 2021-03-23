@@ -38,15 +38,20 @@ class App extends React.Component {
     return (
       <>
         <GlobalStyle />
-        {movieList.map(movie => {
-          return (
-            <Movies
-              id={movie.id}
-              title={movie.title}
-              year={movie.year}
-              summary={movie.summary}
-            />)
-        })}
+        {movieList.length === 0 ? (
+          <div>Loading...</div>
+        ) : (
+          movieList.map(movie => {
+            return (
+              <Movies
+                id={movie.id}
+                title={movie.title}
+                year={movie.year}
+                summary={movie.summary}
+              />
+            )
+          })
+        )}
       </>
     )
   }
