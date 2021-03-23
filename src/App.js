@@ -5,7 +5,7 @@ import axios from 'axios';
 
 class App extends React.Component {
   state = {
-    loading: false,
+    loading: true,
     movieList: []
   }
 
@@ -15,30 +15,29 @@ class App extends React.Component {
   }
 
   loadMovies = async () => {
-    axios
+    await axios
       .get("https://yts.mx/api/v2/list_movies.json")
       .then(result => {
         this.setState({
-          loading: true,
+          loading: false,
           movieList: result.data.data.movies
         });
       })
       .catch(error => {
         console.error(error);
         this.setState({
-          loading: false
+          loading: true
         })
       })
   };
 
   render() {
     console.log('render')
-    const { movieList } = this.state;
-    console.log(movieList)
+    const { movieList, loading } = this.state;
     return (
       <>
         <GlobalStyle />
-        {movieList.length === 0 ? (
+        {loading ? (
           <div>Loading...</div>
         ) : (
           movieList.map(movie => {
