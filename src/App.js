@@ -3,12 +3,10 @@ import GlobalStyle from './components/GlobalStyle';
 import Movie from './components/Movie'
 
 class App extends React.Component {
-  componentDidMount() {
-    console.log('componentdidmount')
-  }
   state = {
     number: 0
   }
+
   handleIncrease = () => {
     const { number } = this.state;
     this.setState({
@@ -16,20 +14,21 @@ class App extends React.Component {
     })
   }
   handleDecrease = () => {
-    this.setState(({ number }) => ({
+    const { number } = this.state;
+    this.setState({
       number: number - 1
-    }))
+    })
   }
   render() {
     console.log('render')
+    const { number } = this.state;
     return (
       <>
         <GlobalStyle />
-        <h1>카운터</h1>
-        <div>값: {this.state.number}</div>
+        <div>값: {number}</div>
         <button onClick={this.handleIncrease}>+</button>
         <button onClick={this.handleDecrease}>-</button>
-        <Movie />
+        <Movie name="react"/>
       </>
     )
   }
