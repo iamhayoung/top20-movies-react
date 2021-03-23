@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/top20-movies-react/static/js/main.a370fc4b.chunk.js",
+    "main.js.map": "/top20-movies-react/static/js/main.a370fc4b.chunk.js.map",
+    "runtime-main.js": "/top20-movies-react/static/js/runtime-main.d0eea2b0.js",
+    "runtime-main.js.map": "/top20-movies-react/static/js/runtime-main.d0eea2b0.js.map",
+    "static/js/2.85c48df3.chunk.js": "/top20-movies-react/static/js/2.85c48df3.chunk.js",
+    "static/js/2.85c48df3.chunk.js.map": "/top20-movies-react/static/js/2.85c48df3.chunk.js.map",
+    "index.html": "/top20-movies-react/index.html",
+    "static/js/2.85c48df3.chunk.js.LICENSE.txt": "/top20-movies-react/static/js/2.85c48df3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d0eea2b0.js",
+    "static/js/2.85c48df3.chunk.js",
+    "static/js/main.a370fc4b.chunk.js"
+  ]
+}
