@@ -29,6 +29,10 @@ const Title = styled.h1`
   text-align: center;
   line-height: 1.3;
   font-style: italic;
+
+  @media only screen and (max-width: 1200px) {
+    font-size: 83px;
+  }
 `
 
 const MovieList = styled.div`
