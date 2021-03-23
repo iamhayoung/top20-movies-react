@@ -18,7 +18,7 @@ const Img = styled.img`
 
 const MovieData = styled.div``
 
-const Title = styled.h1`
+const MovieTitle = styled.h2`
   margin-bottom: 5px;
   font-weight: 600;
   color: #333;
@@ -28,7 +28,7 @@ const Title = styled.h1`
 const Year = styled.p`
   margin-bottom: 20px;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   color: #615555;
 `
 
@@ -40,6 +40,7 @@ const Genre = styled.li`
   display: inline-block;
   font-size: 14px;
   color: #9c9c9c;
+  font-weight: 300;
 
   &:after {
     content: '|';
@@ -59,6 +60,10 @@ const Summary = styled.p`
   overflow: hidden;
   font-size: 14px;
   color: #3a3636;
+
+  @media only screen and (max-width: 1200px) {
+    -webkit-line-clamp: 6;
+  }
 `
 
 const Movie = ({id, title, image, year, genres, summary}) => (
@@ -66,7 +71,7 @@ const Movie = ({id, title, image, year, genres, summary}) => (
     <MovieItem id={id}>
       <Img src={image} alt={title} />
       <MovieData>
-        <Title>{title}</Title>
+        <MovieTitle>{title}</MovieTitle>
         <Year>{year}</Year>
         <Genres>
           {genres.map((genre, index) => {

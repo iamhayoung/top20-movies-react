@@ -8,7 +8,7 @@ const Container = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
   min-height: 100vh;
   padding: 50px;
   background: #fef9ef;
@@ -18,10 +18,27 @@ const Loading = styled.div`
   font-weight: bold;
 `
 
+const Title = styled.h1`
+  margin-bottom: 60px;
+  font-size: 120px;
+  letter-spacing: 7px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 8px 8px #cd4631, 17px 17px #000000;
+  text-align: center;
+  line-height: 1.3;
+  font-style: italic;
+`
+
 const MovieList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 500px);
   grid-gap: 100px;
+
+  @media only screen and (max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 class App extends React.Component {
@@ -62,21 +79,24 @@ class App extends React.Component {
         {loading ? (
           <Loading>Loading...</Loading>
           ) : (
-          <MovieList>
-            {movieList.map(movie => {
-              return (
-                <Movie
-                  key={movie.id}
-                  id={movie.id}
-                  title={movie.title}
-                  image={movie.medium_cover_image}
-                  year={movie.year}
-                  genres={movie.genres}
-                  summary={movie.summary}
-                />
-              )
-            })}
-          </MovieList>
+          <>
+            <Title>Top 20 Movies</Title>
+            <MovieList>
+              {movieList.map(movie => {
+                return (
+                  <Movie
+                    key={movie.id}
+                    id={movie.id}
+                    title={movie.title}
+                    image={movie.medium_cover_image}
+                    year={movie.year}
+                    genres={movie.genres}
+                    summary={movie.summary}
+                  />
+                )
+              })}
+            </MovieList>
+          </>
         )}
       </Container>
       </>
