@@ -7,6 +7,19 @@ class App extends React.Component {
     number: 0
   }
 
+  constructor(props) {
+    super(props);
+    console.log('constructor');
+  }
+
+  componentDidMount() {
+    console.log("componentdidmount!")
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate');
+  }
+
   handleIncrease = () => {
     const { number } = this.state;
     this.setState({
