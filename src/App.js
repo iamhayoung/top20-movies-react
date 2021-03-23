@@ -1,47 +1,36 @@
 import React from 'react';
 import GlobalStyle from './components/GlobalStyle';
 import Movie from './components/Movie'
+import axios from 'axios';
 
 class App extends React.Component {
   state = {
-    number: 0
-  }
-
-  constructor(props) {
-    super(props);
-    console.log('constructor');
+    movieList: []
   }
 
   componentDidMount() {
-    console.log("componentdidmount!")
+    console.log("componentdidmount!");
+    this.loadMovies();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
-  }
+  loadMovies = () => {
+    axios
+      .get("https://yts.mx/api/v2/list_movies.json")
+      .then((result) => {
+        console.log(result.data.data.movies);
+      })
+      .catch(error => {
+        console.error(error);
+      })
+  };
 
-  handleIncrease = () => {
-    const { number } = this.state;
-    this.setState({
-      number: number + 1
-    })
-  }
-  handleDecrease = () => {
-    const { number } = this.state;
-    this.setState({
-      number: number - 1
-    })
-  }
   render() {
     console.log('render')
-    const { number } = this.state;
+    const {movieList} = this.state
     return (
       <>
         <GlobalStyle />
-        <div>값: {number}</div>
-        <button onClick={this.handleIncrease}>+</button>
-        <button onClick={this.handleDecrease}>-</button>
-        <Movie name="react"/>
+        <Movie hoge={movieList} />
       </>
     )
   }

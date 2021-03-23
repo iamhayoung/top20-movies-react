@@ -5,9 +5,9 @@ const Movies = styled.div`
   background: pink;
 `
 
-const Movie = ({name}) => (
+const Movie = ({hoge}) => (
   <>
-    <Movies>{name}</Movies>
+    <Movies>{hoge}</Movies>
   </>
 )
 
