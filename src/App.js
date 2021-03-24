@@ -12,6 +12,10 @@ const Container = styled.section`
   min-height: 100vh;
   padding: 50px;
   background: #fef9ef;
+
+  @media only screen and (max-width: 767px) {
+    padding: 20px;
+  }
 `
 
 const Loading = styled.div`
@@ -33,6 +37,11 @@ const Title = styled.h1`
   @media only screen and (max-width: 1200px) {
     font-size: 83px;
   }
+
+  @media only screen and (max-width: 767px) {
+    margin-bottom: 35px;
+    font-size: 47px;
+  }
 `
 
 const MovieList = styled.div`
@@ -42,6 +51,10 @@ const MovieList = styled.div`
 
   @media only screen and (max-width: 1200px) {
     grid-template-columns: 1fr;
+  }
+
+  @media only screen and (max-width: 767px) {
+    grid-gap: 45px;
   }
 `
 

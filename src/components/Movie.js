@@ -8,12 +8,24 @@ const MovieItem = styled.div`
   padding: 30px;
   background: #fff;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+
+  @media only screen and (max-width: 767px) {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+  }
 `
 
 const Img = styled.img`
   max-width: 190px;
   width: 100%;
   margin-right: 30px;
+
+  @media only screen and (max-width: 767px) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 `
 
 const MovieData = styled.div``
@@ -23,6 +35,10 @@ const MovieTitle = styled.h2`
   font-weight: 600;
   color: #333;
   line-height: 1.3;
+
+  @media only screen and (max-width: 767px) {
+    text-align: center;
+  }
 `
 
 const Year = styled.p`
@@ -30,10 +46,20 @@ const Year = styled.p`
   font-size: 14px;
   font-weight: 400;
   color: #615555;
+
+  @media only screen and (max-width: 767px) {
+    margin-bottom: 0;
+    text-align: center;
+  }
 `
 
 const Genres = styled.ul`
   margin-bottom: 5px;
+
+  @media only screen and (max-width: 767px) {
+    margin-bottom: 20px;
+    text-align: center;
+  }
 `
 
 const Genre = styled.li`
